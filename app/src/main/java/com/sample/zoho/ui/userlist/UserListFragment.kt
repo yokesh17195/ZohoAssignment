@@ -1,4 +1,10 @@
 package com.sample.zoho.ui.userlist
 
-class UserListFragment {
+import androidx.fragment.app.Fragment
+import com.sample.zoho.R
+
+class UserListFragment:Fragment(R.layout.fragment_user_list) {
+
+
+
 }
