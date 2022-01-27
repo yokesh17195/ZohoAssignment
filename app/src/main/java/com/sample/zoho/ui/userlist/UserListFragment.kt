@@ -1,10 +1,42 @@
 package com.sample.zoho.ui.userlist
 
+import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.sample.zoho.R
+import com.sample.zoho.ui.userlist.logic.UserListLogic
+import com.sample.zoho.utils.Status
+import com.sample.zoho.viewmodel.DataViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class UserListFragment:Fragment(R.layout.fragment_user_list) {
 
+    val viewmodel:DataViewModel by activityViewModels()
 
+    @Inject
+    lateinit var userListLogic: UserListLogic
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewmodel.data.observe(viewLifecycleOwner,{
+            when(it.status){
+
+                Status.LOADING->{
+
+                }
+                Status.SUCCESS->{
+                    Log.e("size", userListLogic.getUserList(it.data?.results!!).size.toString())
+                }
+                Status.ERROR->{
+
+                }
+
+            }
+        })
+    }
 }

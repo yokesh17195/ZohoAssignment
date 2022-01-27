@@ -1,5 +1,6 @@
 package com.sample.zoho.di
 
+import com.sample.zoho.data.webservice.UserWebService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -43,4 +44,6 @@ class RetrofitModule {
         HttpLoggingInterceptor()
             .setLevel(HttpLoggingInterceptor.Level.BODY)
 
+    @Provides
+    fun provideApiService(retrofit: Retrofit):UserWebService = retrofit.create(UserWebService::class.java)
 }

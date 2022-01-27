@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.sample.zoho.R
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author Yokesh.K.P
  * Activity for setting up splash screen and hosting fragment
  * */
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
