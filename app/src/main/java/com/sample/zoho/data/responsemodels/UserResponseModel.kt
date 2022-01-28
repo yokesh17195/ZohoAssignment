@@ -17,7 +17,8 @@ data class Results (
     @SerializedName("phone"      ) var phone      : String?     = null,
     @SerializedName("cell"       ) var cell       : String?     = null,
     @SerializedName("picture"    ) var picture    : Picture?    = Picture(),
-    @SerializedName("nat"        ) var nat        : String?     = null
+    @SerializedName("nat"        ) var nat        : String?     = null,
+    @SerializedName("login") var login: Login? = Login()
 
 )
 
@@ -52,4 +53,8 @@ data class Picture (
     @SerializedName("medium"    ) var medium    : String? = null,
     @SerializedName("thumbnail" ) var thumbnail : String? = null
 
+)
+
+data class Login(
+    @SerializedName("uuid") var id:String?=null
 )

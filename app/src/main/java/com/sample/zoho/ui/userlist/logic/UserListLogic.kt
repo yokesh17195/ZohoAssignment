@@ -16,8 +16,6 @@ class UserListLogic {
 
             val nameBuilder = StringBuilder()
             val name = nameBuilder.apply {
-                append(it.name?.title)
-                append(".")
                 append(it.name?.first)
                 append(" ")
                 append(it.name?.last)
@@ -39,7 +37,7 @@ class UserListLogic {
                 append(",")
             }.toString()
 
-            val dataItem = UserListModel(name, location, imgUrl)
+            val dataItem = UserListModel(name, location, imgUrl, it.login?.id.toString())
 
             userlist.add(dataItem)
         }

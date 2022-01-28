@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
 import com.sample.zoho.data.repository.UserListRepository
 import com.sample.zoho.data.responsemodels.UserResponseModel
 import com.sample.zoho.utils.Resource
@@ -17,16 +18,20 @@ import javax.inject.Inject
 @HiltViewModel
 class DataViewModel @Inject constructor(var repository: UserListRepository):ViewModel() {
 
-    var _data = MutableLiveData<Resource<UserResponseModel>>()
+    /*var _data = MutableLiveData<Resource<UserResponseModel>>()
     val data:LiveData<Resource<UserResponseModel>>
-    get() = _data
+    get() = _data*/
+
+    val data = repository.getData().cachedIn(viewModelScope)
+
+
 
     init {
         fetchData()
     }
 
     private fun fetchData() {
-        viewModelScope.launch(Dispatchers.IO){
+        /*viewModelScope.launch(Dispatchers.IO){
 
             _data.postValue(Resource.loading(null))
 
@@ -41,7 +46,7 @@ class DataViewModel @Inject constructor(var repository: UserListRepository):View
 
 
 
-        }
+        }*/
     }
 
 }

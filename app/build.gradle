@@ -43,6 +43,7 @@ dependencies {
 
     def nav_version = "2.3.5"
     def lifecycle_version = "2.4.0"
+    def paging_version = "3.1.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -95,6 +96,9 @@ dependencies {
 
     //Splash Screen API
     implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
+
+    //Paging
+    implementation("androidx.paging:paging-runtime:$paging_version")
 }
 
 kapt {

@@ -11,6 +11,6 @@ import retrofit2.http.GET
 interface UserWebService {
 
     @GET("api/?results=25")
-    suspend fun getDataResponse(): Response<UserResponseModel>
+    suspend fun getDataResponse(): UserResponseModel
 
 }
